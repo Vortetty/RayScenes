@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
     rsm.addScene("secondary", secondaryDrawing);
     rsm.addScene("tertiary", tertiaryDrawing);
 
-    rsm.addActiveScene("main");
+    rsm.setActiveScene("main");
 
     while (!WindowShouldClose()) {
         BeginDrawing();
