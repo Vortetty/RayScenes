@@ -1,0 +1,153 @@
+# 
+# Config vars
+# Other configuration can be done in the install_files dir
+#   any assets should be put there and accessed relative to the compiled program or absolute to it's install dir
+# 
+
+# Directories to not have in include path
+INCLUDE_FILTER = -Isrc/raylib/src/external/
+
+# Libs to link and paths to link
+LINK_LIBRARIES = -L/usr/lib -Llib -ldl
+
+# Extra defines
+DEFINES = -D_DEFAULT_SOURCE -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 
+
+# Name of your project's install folder in the opt directory
+OPT_FOLDER_NAME = raylibProjectTemplate
+
+# Name of your project's desktop file
+DESKTOP_FILE_NAME = projectTemplate.desktop
+
+# Name of your project's binary
+BINARY_NAME = main
+
+
+
+# 
+# Build stuff
+# Feel free to edit but it all works already
+# 
+SRC_DIR := src
+OBJ_DIR := src
+C_SRC_FILES := $(filter-out src/raylib/src/external,$(shell find $(SRC_DIR)/ -path src/raylib/src/external -prune -o -type f -name '*.c'))
+CC_SRC_FILES := $(filter-out src/raylib/src/external,$(shell find $(SRC_DIR)/ -path src/raylib/src/external -prune -o -type f -name '*.cc'))
+CPP_SRC_FILES := $(filter-out src/raylib/src/external,$(shell find $(SRC_DIR)/ -path src/raylib/src/external -prune -o -type f -name '*.cpp'))
+C_OBJ_FILES := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(C_SRC_FILES))
+CC_OBJ_FILES := $(patsubst $(SRC_DIR)/%.cc,$(OBJ_DIR)/%.o,$(CC_SRC_FILES))
+CPP_OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(CPP_SRC_FILES))
+OBJ_FILES := $(C_OBJ_FILES) $(CC_OBJ_FILES) $(CPP_OBJ_FILES)
+
+# Filtered external since it contains dirent.h, which is a windows header.
+INCLUDE_DIRS = $(filter-out $(INCLUDE_FILTER),$(addprefix -I,$(sort $(dir $(shell find src/ -type d)))) $(addprefix -I,$(sort $(dir $(shell find include/ -type d)))))
+IGNORE_ISO_STANDARD = -Wno-writable-strings -Wno-missing-braces -Werror=pointer-arith -fno-strict-aliasing $(DEFINES)
+
+pollySupported = $(shell clang polly_support_test/polly_tester.cpp -o /dev/null -mllvm -polly -mllvm -polly-parallel -lgomp -mllvm -polly-vectorizer=stripmine)
+POLLY_OPTS =
+ifeq ($(.SHELLSTATUS),0)
+	POLLY_OPTS = -mllvm -polly \
+				-mllvm -polly-parallel -lgomp \
+				-mllvm -polly-vectorizer=stripmine
+endif
+
+GLFW_DEFINES = 
+ifeq ($(OS),Windows_NT)
+	GLFW_DEFINES = -D_GLFW_WIN32=1
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Linux)
+        GLFW_DEFINES = -D_GLFW_X11=1
+    endif
+    ifeq ($(UNAME_S),Darwin)
+        GLFW_DEFINES = -D_GLFW_COCOA=1
+    endif
+endif
+DEFINES := $(DEFINES) $(GLFW_DEFINES)
+
+GDB_OPTS = 
+
+#  ____        _ _     _
+# |  _ \      (_) |   | |
+# | |_) |_   _ _| | __| |
+# |  _ <| | | | | |/ _` |
+# | |_) | |_| | | | (_| |
+# |____/ \__,_|_|_|\__,_|
+#
+
+# Linux
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+.PHONY: build run gdb clean
+
+build: $(OBJ_FILES)
+	-rm -rf bin
+	-mkdir bin
+	clang++ -std=c++20 -o bin/$(BINARY_NAME) $(OBJ_FILES) $(INCLUDE_DIRS) $(LINK_LIBRARIES) -pthreads -O3 $(IGNORE_ISO) $(POLLY_OPTS) $(DEFINES) -Wl,-s
+
+run:
+	./bin/$(BINARY_NAME)
+
+test: build
+	./bin/$(BINARY_NAME)
+
+gdb: setGdbOpts $(OBJ_FILES)
+	-rm -rf bin
+	-mkdir bin
+	clang++ -std=c++20 -o bin/$(BINARY_NAME) $(OBJ_FILES) $(INCLUDE_DIRS) $(LINK_LIBRARIES) -pthreads -O3 $(IGNORE_ISO) $(POLLY_OPTS) $(DEFINES) -Wl,-s -g
+	gdb -ex run bin/$(BINARY_NAME)
+
+setGdbOpts:
+	$(eval GDB_OPTS := -g)
+
+install:
+ifeq ($(shell id -u),0)
+	-mkdir /opt
+	-rm -rf /opt/$(OPT_FOLDER_NAME)
+	-rm -f /usr/share/applications/$(DESKTOP_FILE_NAME)
+	-mkdir /opt/$(OPT_FOLDER_NAME)
+	cp -rf bin/. /opt/$(OPT_FOLDER_NAME)/
+	cp -rf install_files/. /opt/$(OPT_FOLDER_NAME)/
+	cp -f install_files/$(DESKTOP_FILE_NAME) /usr/share/applications/
+else
+	@echo -e "+-----------------------------------------+"
+	@echo -e "| \e[1;31mYou must be root to install the program\e[0m |"
+	@echo -e "+-----------------------------------------+"
+endif
+
+uninstall:
+ifeq ($(shell id -u),0)
+	-rm -rf /opt/$(OPT_FOLDER_NAME)
+	-rm -f /usr/share/applications/$(DESKTOP_FILE_NAME)
+else
+	@echo -e "+-----------------------------------------+"
+	@echo -e "| \e[1;31mYou must be root to install the program\e[0m |"
+	@echo -e "+-----------------------------------------+"
+endif
+
+
+$(C_OBJ_FILES): %.o: %.c
+	clang -std=c99 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)
+$(CC_OBJ_FILES): %.o: %.cc
+	clang++ -std=c++20 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)
+$(CPP_OBJ_FILES): %.o: %.cpp
+	clang++ -std=c++20 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)
+#$(OBJ_FILES):
+#	clang++ -std=c++20 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS)
+
+
+clean:
+	rm -rf bin
+	mkdir bin
+	find . -type f -name '*.o' -delete
+
+endif
+
+# mac
+ifeq ($(UNAME_S),Darwin)
+	@echo "Unsupported operating system due to my lack of mac devices, feel free to make a pr with a working build system"
+endif
+
+# windows
+ifeq ($(OS),Windows_NT)
+	@echo "Unsupported operating system due to:\n\"fuck that dll hell\" - Winter 2021"
+endif

@@ -1,0 +1,15 @@
+# Ignore object files
+*.o
+*.o.tmp
+
+# Ignore build files and vs files(vsc files are fine)
+.vs
+.vs/*
+bin
+bin/*
+Debug
+Debug/*
+Release
+Release/*
+Build
+Build/*

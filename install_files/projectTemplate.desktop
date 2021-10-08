@@ -1,0 +1,17 @@
+# Don't change this, it tells everything what this specifies
+[Desktop Entry]
+
+# Program name
+Name=Template Raylib Program
+
+# Executable, should be exact
+Exec=/opt/raylibProjectTemplate/main
+
+# Icon, should be exact
+Icon=/opt/raylibProjectTemplate/icon.ico
+
+# Unless this is a terminal app, leave true
+Terminal=false
+
+# Don't change, this is an application
+Type=Application
