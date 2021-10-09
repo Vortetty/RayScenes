@@ -1,0 +1,80 @@
+\hypertarget{classrayscenes_1_1rayscenemanager_1_1rayscene}{}\doxysection{rayscenes\+::rayscenemanager\+::rayscene Class Reference}
+\label{classrayscenes_1_1rayscenemanager_1_1rayscene}\index{rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}}
+
+
+Ray\+Scene class, manages a single scene, it is mostly an abstraction for the scene functions.  
+
+
+
+
+{\ttfamily \#include $<$rayscenes.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a2314e80f1b152d83d236446d5c173bbe}{rayscene}} (\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}} \+\_\+func)
+\begin{DoxyCompactList}\small\item\em Construct a new rayscene object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_1_1rayscene_a91c9722506af0d73aaa4699f2db0eee0}\label{classrayscenes_1_1rayscenemanager_1_1rayscene_a91c9722506af0d73aaa4699f2db0eee0}} 
+{\bfseries rayscene} ()
+\begin{DoxyCompactList}\small\item\em Construct a new rayscene object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a9b25e44abb4f392637904c58ff9f0370}{set\+Func}} (\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}} \+\_\+func)
+\begin{DoxyCompactList}\small\item\em Set/replace the function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a375157b6de8917d9ce8e39382a86b362}{call}} (\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&rsm, bool is\+Top)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ray\+Scene class, manages a single scene, it is mostly an abstraction for the scene functions. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_1_1rayscene_a2314e80f1b152d83d236446d5c173bbe}\label{classrayscenes_1_1rayscenemanager_1_1rayscene_a2314e80f1b152d83d236446d5c173bbe}} 
+\index{rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}!rayscene@{rayscene}}
+\index{rayscene@{rayscene}!rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}}
+\doxysubsubsection{\texorpdfstring{rayscene()}{rayscene()}}
+{\footnotesize\ttfamily rayscenes\+::rayscenemanager\+::rayscene\+::rayscene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}}}]{\+\_\+func }\end{DoxyParamCaption})}
+
+
+
+Construct a new rayscene object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+func} & The function to call when the scene is active and should be rendered \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_1_1rayscene_a375157b6de8917d9ce8e39382a86b362}\label{classrayscenes_1_1rayscenemanager_1_1rayscene_a375157b6de8917d9ce8e39382a86b362}} 
+\index{rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}!call@{call}}
+\index{call@{call}!rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}}
+\doxysubsubsection{\texorpdfstring{call()}{call()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::rayscene\+::call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&}]{rsm,  }\item[{bool}]{is\+Top }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rsm} & The current rayscenemanager \\
+\hline
+{\em is\+Top} & If the scene is the top scene(the last one to be rendered) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_1_1rayscene_a9b25e44abb4f392637904c58ff9f0370}\label{classrayscenes_1_1rayscenemanager_1_1rayscene_a9b25e44abb4f392637904c58ff9f0370}} 
+\index{rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}!setFunc@{setFunc}}
+\index{setFunc@{setFunc}!rayscenes::rayscenemanager::rayscene@{rayscenes::rayscenemanager::rayscene}}
+\doxysubsubsection{\texorpdfstring{setFunc()}{setFunc()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::rayscene\+::set\+Func (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}}}]{\+\_\+func }\end{DoxyParamCaption})}
+
+
+
+Set/replace the function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+func} & The function to call when the scene is active and should be rendered \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/rayscenes.\+hpp\end{DoxyCompactItemize}

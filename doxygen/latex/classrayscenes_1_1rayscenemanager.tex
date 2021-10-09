@@ -1,0 +1,297 @@
+\hypertarget{classrayscenes_1_1rayscenemanager}{}\doxysection{rayscenes\+::rayscenemanager Class Reference}
+\label{classrayscenes_1_1rayscenemanager}\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+
+
+Ray\+Scene\+Manager class, manages rayscenes.  
+
+
+
+
+{\ttfamily \#include $<$rayscenes.\+hpp$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}
+\begin{DoxyCompactList}\small\item\em Ray\+Scene class, manages a single scene, it is mostly an abstraction for the scene functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_ad15870deb897e8ffe4d5c39a7b70738f}\label{classrayscenes_1_1rayscenemanager_ad15870deb897e8ffe4d5c39a7b70738f}} 
+{\bfseries rayscenemanager} ()
+\begin{DoxyCompactList}\small\item\em Construct a new rayscenemanager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a379e5fd1339fc3b75a79a84a20c6d313}{rayscenemanager}} (const \mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&r)
+\begin{DoxyCompactList}\small\item\em Construct a new rayscenemanager object. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} $>$ \& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a955ba9d872b8e1bfbf29c9d9940a11ff}{get\+All\+Scenes}} ()
+\begin{DoxyCompactList}\small\item\em Get the map containing the scenes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600cf2920eb22}{set\+All\+Scenes}} (std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} $>$ new\+Scenes)
+\begin{DoxyCompactList}\small\item\em Replaces the map of scenes with a new one. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} \& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a3710d749c475903d7822e39b1c17b66f}{get\+Scene}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Get a scene\textquotesingle{}s object by id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{add\+Scene}} (std\+::string id, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} scene)
+\begin{DoxyCompactList}\small\item\em Add a scene to the map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}{add\+Scene}} (std\+::string id, \mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}} func)
+\begin{DoxyCompactList}\small\item\em Add a scene to the map given a function not a scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{remove\+Scene}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Remove a scene from the map by id. \end{DoxyCompactList}\item 
+std\+::deque$<$ std\+::string $>$ \& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}{get\+Active\+Scenes}} ()
+\begin{DoxyCompactList}\small\item\em Get a deque of scene ids representing the active scenes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a41ed0f29d4c5dfacf9835d0a3a556b5e}{set\+Active\+Scenes}} (std\+::deque$<$ std\+::string $>$ ids)
+\begin{DoxyCompactList}\small\item\em Set the current active scenes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{set\+Active\+Scene}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Disables all scenes sets a new one as active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a53c06225a494443c39b251269086afe8}{add\+Active\+Scene}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Adds a new scene on top of the others. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a54ac3a46e1bfbed6729568416e0c3f6c}{add\+Active\+Scenes}} (std\+::deque$<$ std\+::string $>$ ids)
+\begin{DoxyCompactList}\small\item\em Adds scenes on top of the others given a deque of ids. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ac91695a55fc0562891f47a7b81e40999}{remove\+Active\+Scene}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Remove a scene from the active scenes list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ab550ee7c864f593d63ca6802494830b2}{remove\+Active\+Scenes}} (std\+::deque$<$ std\+::string $>$ ids)
+\begin{DoxyCompactList}\small\item\em Remove scenes from the active scenes list given a deque of ids. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}{clear\+Active\+Scenes}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Clears all scenes from the list, effectively stopping rendering. It is recommended you always have one scene active or some other update loop to ensure the program stays working. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}\label{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}} 
+void {\bfseries render\+Active\+Scenes} ()
+\begin{DoxyCompactList}\small\item\em Renders all scenes that are active, it is safe to modify the list during this running as it first creates a copy on the deque before beginning rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ray\+Scene\+Manager class, manages rayscenes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a379e5fd1339fc3b75a79a84a20c6d313}\label{classrayscenes_1_1rayscenemanager_a379e5fd1339fc3b75a79a84a20c6d313}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!rayscenemanager@{rayscenemanager}}
+\index{rayscenemanager@{rayscenemanager}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{rayscenemanager()}{rayscenemanager()}}
+{\footnotesize\ttfamily rayscenes\+::rayscenemanager\+::rayscenemanager (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&}]{r }\end{DoxyParamCaption})}
+
+
+
+Construct a new rayscenemanager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & An old rayscenemanager to copy \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a53c06225a494443c39b251269086afe8}\label{classrayscenes_1_1rayscenemanager_a53c06225a494443c39b251269086afe8}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addActiveScene@{addActiveScene}}
+\index{addActiveScene@{addActiveScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addActiveScene()}{addActiveScene()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Active\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Adds a new scene on top of the others. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a54ac3a46e1bfbed6729568416e0c3f6c}\label{classrayscenes_1_1rayscenemanager_a54ac3a46e1bfbed6729568416e0c3f6c}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addActiveScenes@{addActiveScenes}}
+\index{addActiveScenes@{addActiveScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addActiveScenes()}{addActiveScenes()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Active\+Scenes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{ids }\end{DoxyParamCaption})}
+
+
+
+Adds scenes on top of the others given a deque of ids. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A deque of ids to set as active \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}\label{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
+\index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}}]{scene }\end{DoxyParamCaption})}
+
+
+
+Add a scene to the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+{\em scene} & The scene to link the id to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}\label{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
+\index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}}}]{func }\end{DoxyParamCaption})}
+
+
+
+Add a scene to the map given a function not a scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+{\em func} & The func to link the id to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}\label{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!clearActiveScenes@{clearActiveScenes}}
+\index{clearActiveScenes@{clearActiveScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{clearActiveScenes()}{clearActiveScenes()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::clear\+Active\+Scenes (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Clears all scenes from the list, effectively stopping rendering. It is recommended you always have one scene active or some other update loop to ensure the program stays working. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}\label{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!getActiveScenes@{getActiveScenes}}
+\index{getActiveScenes@{getActiveScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{getActiveScenes()}{getActiveScenes()}}
+{\footnotesize\ttfamily std\+::deque$<$ std\+::string $>$ \& rayscenes\+::rayscenemanager\+::get\+Active\+Scenes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get a deque of scene ids representing the active scenes. 
+
+\begin{DoxyReturn}{Returns}
+std\+::deque$<$std\+::string$>$\& Reference to the deque 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a955ba9d872b8e1bfbf29c9d9940a11ff}\label{classrayscenes_1_1rayscenemanager_a955ba9d872b8e1bfbf29c9d9940a11ff}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!getAllScenes@{getAllScenes}}
+\index{getAllScenes@{getAllScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{getAllScenes()}{getAllScenes()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} $>$ \& rayscenes\+::rayscenemanager\+::get\+All\+Scenes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the map containing the scenes. 
+
+\begin{DoxyReturn}{Returns}
+std\+::unordered\+\_\+map$<$std\+::string, rayscene$>$\& Reference to map containing the scenes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a3710d749c475903d7822e39b1c17b66f}\label{classrayscenes_1_1rayscenemanager_a3710d749c475903d7822e39b1c17b66f}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!getScene@{getScene}}
+\index{getScene@{getScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{getScene()}{getScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} \& rayscenes\+::rayscenemanager\+::get\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Get a scene\textquotesingle{}s object by id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id of the scene you want \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rayscene\& Reference to the scene 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_ac91695a55fc0562891f47a7b81e40999}\label{classrayscenes_1_1rayscenemanager_ac91695a55fc0562891f47a7b81e40999}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!removeActiveScene@{removeActiveScene}}
+\index{removeActiveScene@{removeActiveScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{removeActiveScene()}{removeActiveScene()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::remove\+Active\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove a scene from the active scenes list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_ab550ee7c864f593d63ca6802494830b2}\label{classrayscenes_1_1rayscenemanager_ab550ee7c864f593d63ca6802494830b2}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!removeActiveScenes@{removeActiveScenes}}
+\index{removeActiveScenes@{removeActiveScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{removeActiveScenes()}{removeActiveScenes()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::remove\+Active\+Scenes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{ids }\end{DoxyParamCaption})}
+
+
+
+Remove scenes from the active scenes list given a deque of ids. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A deque of ids to set as active \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}\label{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!removeScene@{removeScene}}
+\index{removeScene@{removeScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{removeScene()}{removeScene()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::remove\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Remove a scene from the map by id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}\label{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!setActiveScene@{setActiveScene}}
+\index{setActiveScene@{setActiveScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{setActiveScene()}{setActiveScene()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::set\+Active\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Disables all scenes sets a new one as active. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a41ed0f29d4c5dfacf9835d0a3a556b5e}\label{classrayscenes_1_1rayscenemanager_a41ed0f29d4c5dfacf9835d0a3a556b5e}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!setActiveScenes@{setActiveScenes}}
+\index{setActiveScenes@{setActiveScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{setActiveScenes()}{setActiveScenes()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::set\+Active\+Scenes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{ids }\end{DoxyParamCaption})}
+
+
+
+Set the current active scenes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A deque of ids to set as active \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600cf2920eb22}\label{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600cf2920eb22}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!setAllScenes@{setAllScenes}}
+\index{setAllScenes@{setAllScenes}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{setAllScenes()}{setAllScenes()}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::set\+All\+Scenes (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} $>$}]{new\+Scenes }\end{DoxyParamCaption})}
+
+
+
+Replaces the map of scenes with a new one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Scenes} & The new map of scenes \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/rayscenes.\+hpp\end{DoxyCompactItemize}

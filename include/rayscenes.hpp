@@ -7,85 +7,230 @@
 #include <functional>
 #include <tuple>
 
+
+/**
+ * @brief RayScenes namespace
+ * 
+ */
 namespace rayscenes {
 
+	/**
+	 * @brief Type for the function for a rayscene, expands to `void (*)(rayscenes::rayscenemanager&, bool)`
+	 * 
+	 */
+	typedef void(*rayscenefunc)(rayscenes::rayscenemanager&, bool);
+
+	/**
+	 * @brief RaySceneManager class, manages rayscenes
+	 * 
+	 */
 	class rayscenemanager {
 	public:
+
+		/**
+		 * @brief RayScene class, manages a single scene, it is mostly an abstraction for the scene functions
+		 * 
+		 */
         class rayscene {
         public:
-            rayscene(void (*_func)(rayscenemanager&, bool)) { func = _func; funcSet = true; }
-            rayscene() {};
+			/**
+			 * @brief Construct a new rayscene object
+			 * 
+			 * @param _func The function to call when the scene is active and should be rendered
+			 */
+            rayscene(rayscenefunc _func);
 
-            void setFunc(void (* _func)(rayscenemanager&, bool)) { func = _func; funcSet = true; }
-            void call(rayscenemanager &rsm, bool isTop) { if (funcSet) func(rsm, isTop); }
+			/**
+			 * @brief Construct a new rayscene object
+			 * 
+			 */
+            rayscene();
+
+
+			/**
+			 * @brief Set/replace the function
+			 * 
+			 * @param _func The function to call when the scene is active and should be rendered
+			 */
+            void setFunc(rayscenefunc _func);
+
+			/**
+			 * @brief 
+			 * 
+			 * @param rsm The current rayscenemanager
+			 * @param isTop If the scene is the top scene(the last one to be rendered)
+			 */
+            void call(rayscenemanager &rsm, bool isTop);
 
         private:
-            bool funcSet = true;
-            void (*func)(rayscenemanager&, bool);
+			/**
+			 * @brief If the function has been set, prevents calling a null function
+			 * 
+			 */
+            bool funcSet;
+
+			/**
+			 * @brief The function that will be called when the scene is active and should be rendered
+			 * 
+			 */
+            rayscenefunc func;
         };
 
-		rayscenemanager() {}
-		rayscenemanager(const rayscenemanager& r) {
-			clear_unordered_map(scenes);
-			clear_deque(activeScenes);
+		/**
+		 * @brief Construct a new rayscenemanager object
+		 * 
+		 */
+		rayscenemanager();
 
-			for (auto &[key, scene] : ((rayscenemanager)r).getAllScenes()) scenes[key] = scene;
-			for (auto &scene : ((rayscenemanager)r).getActiveScenes()) activeScenes.push_back(scene);
-		}
+		/**
+		 * @brief Construct a new rayscenemanager object
+		 * 
+		 * @param r An old rayscenemanager to copy
+		 */
+		rayscenemanager(const rayscenemanager& r);
 
-		std::unordered_map<std::string, rayscene> getAllScenes() { return scenes; }
-		void setAllScenes(std::unordered_map<std::string, rayscene> newScenes) { for (auto &[key, scene] : newScenes) scenes[key] = scene; }
-		rayscene getScene(std::string id) { return scenes[id]; }
-		void addScene(std::string id, rayscene func) { scenes[id] = func; }
-		void addScene(std::string id, void (* func)(rayscenemanager&, bool)) { scenes[id] = rayscene(func); }
-		void removeScene(std::string id) { scenes.erase(id); }
 
-		std::deque<std::string> getActiveScenes() { return activeScenes; }
-		void setActiveScenes(std::deque<std::string> ids) {
-			clear_deque(activeScenes);
-			for (auto &id : ids) 
-                activeScenes.push_back(id);
-		}
-		void setActiveScene(std::string id) { 
-			clear_deque(activeScenes);
-            activeScenes.push_back(id); 
-        }
-		void addActiveScene(std::string id) { activeScenes.push_back(id); }
-		void addActiveScenes(std::string id) { activeScenes.push_back(id); }
+		/**
+		 * @brief Get the map containing the scenes
+		 * 
+		 * @return std::unordered_map<std::string, rayscene>& Reference to map containing the scenes
+		 */
+		std::unordered_map<std::string, rayscene>& getAllScenes();
 
-		void removeActiveScene(std::string id) { activeScenes.erase(std::remove(activeScenes.begin(), activeScenes.end(), id), activeScenes.end()); }
-		void removeActiveScenes(std::deque<std::string> ids) { 
-            for (auto &id : ids) 
-                activeScenes.erase(std::remove(activeScenes.begin(), activeScenes.end(), id), activeScenes.end()); 
-        }
-		void clearActiveScenes(std::string id) { activeScenes.erase(std::remove(activeScenes.begin(), activeScenes.end(), id), activeScenes.end()); }
+		/**
+		 * @brief Replaces the map of scenes with a new one
+		 * 
+		 * @param newScenes The new map of scenes
+		 */
+		void setAllScenes(std::unordered_map<std::string, rayscene> newScenes);
 
-		void renderActiveScenes() {
-			std::deque<std::string> temp(activeScenes);
-            for (auto &i : temp) {
-                if (scenes.find(i) != scenes.end()) 
-                    scenes[i].call(
-                        *this,
-                        activeScenes.back() == i
-                    );
-            }
-		}
+		/**
+		 * @brief Get a scene's object by id
+		 * 
+		 * @param id Id of the scene you want
+		 * @return rayscene& Reference to the scene
+		 */
+		rayscene& getScene(std::string id);
+
+		/**
+		 * @brief Add a scene to the map
+		 * 
+		 * @param id The target id
+		 * @param scene The scene to link the id to
+		 */
+		void addScene(std::string id, rayscene scene);
+
+		/**
+		 * @brief Add a scene to the map given a function not a scene
+		 * 
+		 * @param id The target id
+		 * @param func The func to link the id to
+		 */
+		void addScene(std::string id, rayscenefunc func);
+
+		/**
+		 * @brief Remove a scene from the map by id
+		 * 
+		 * @param id The target id
+		 */
+		void removeScene(std::string id);
+
+
+		/**
+		 * @brief Get a deque of scene ids representing the active scenes
+		 * 
+		 * @return std::deque<std::string>& Reference to the deque
+		 */
+		std::deque<std::string>& getActiveScenes();
+
+		/**
+		 * @brief Set the current active scenes
+		 * 
+		 * @param ids A deque of ids to set as active
+		 */
+		void setActiveScenes(std::deque<std::string> ids);
+
+		/**
+		 * @brief Disables all scenes sets a new one as active
+		 * 
+		 * @param id The target id
+		 */
+		void setActiveScene(std::string id);
+
+		/**
+		 * @brief Adds a new scene on top of the others
+		 * 
+		 * @param id The target id
+		 */
+		void addActiveScene(std::string id);
+
+		/**
+		 * @brief Adds scenes on top of the others given a deque of ids
+		 * 
+		 * @param ids A deque of ids to set as active
+		 */
+		void addActiveScenes(std::deque<std::string> ids);
+
+
+		/**
+		 * @brief Remove a scene from the active scenes list
+		 * 
+		 * @param id The target id
+		 */
+		void removeActiveScene(std::string id);
+
+		/**
+		 * @brief Remove scenes from the active scenes list given a deque of ids
+		 * 
+		 * @param ids A deque of ids to set as active
+		 */
+		void removeActiveScenes(std::deque<std::string> ids);
+
+		/**
+		 * @brief Clears all scenes from the list, effectively stopping rendering. It is recommended you always have one scene active or some other update loop to ensure the program stays working.
+		 * 
+		 * @param id The target id
+		 */
+		void clearActiveScenes(std::string id);
+
+
+		/**
+		 * @brief Renders all scenes that are active, it is safe to modify the list during this running as it first creates a copy on the deque before beginning rendering.
+		 * 
+		 */
+		void renderActiveScenes();
 
 	private:
-		std::unordered_map<std::string, rayscene> scenes = {};
-		std::deque<std::string> activeScenes = {};
-	
+		/**
+		 * @brief The map of all scenes
+		 * 
+		 */
+		std::unordered_map<std::string, rayscene> scenes;
+
+		/**
+		 * @brief The map of currently active scenes
+		 * 
+		 */
+		std::deque<std::string> activeScenes;
+
+		/**
+		 * @brief Clears a deque
+		 * 
+		 * @tparam T The type the deque stores, in general it is able to be deduced by the compiler
+		 * @param q The deque to clear
+		 */
 		template<typename T>
-		void clear_deque( std::deque<T> &q ) {
-			std::deque<T> empty;
-			std::swap( q, empty );
-		}
+		void clear_deque( std::deque<T> &q );
 	
+		/**
+		 * @brief Clears a map of entries
+		 * 
+		 * @tparam K The type used for the key, in general it is able to be deduced by the compiler
+		 * @tparam V The type used for the value, in general it is able to be deduced by the compiler
+		 * @param q The map to clear
+		 */
 		template<typename K, typename V>
-		void clear_unordered_map( std::unordered_map<K, V> &q ) {
-			std::unordered_map<K, V> empty;
-			std::swap( q, empty );
-		}
+		void clear_unordered_map( std::unordered_map<K, V> &q );
 	};
 
 }
