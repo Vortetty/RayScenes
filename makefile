@@ -8,25 +8,28 @@ ifeq ($(UNAME_S),Linux)
 .PHONY: build run gdb clean
 
 build:
-	@make build -j$(CORES) -f makefile_real $@
+	@make build -j$(CORES) -f makefile_real --no-print-directory $@
 
 run:
-	@make run -j$(CORES) -f makefile_real $@
+	@make run -j$(CORES) -f makefile_real --no-print-directory $@
 
 test:
-	@make test -j$(CORES) -f makefile_real $@
+	@make test -j$(CORES) -f makefile_real --no-print-directory $@
 
 gdb:
-	@make gdb -j$(CORES) -f makefile_real $@
+	@make gdb -j$(CORES) -f makefile_real --no-print-directory $@
 
 clean:
-	@make clean -j$(CORES) -f makefile_real $@
+	@make clean -j$(CORES) -f makefile_real --no-print-directory $@
 
 install:
-	@make install -j$(CORES) -f makefile_real $@
+	@make install -j$(CORES) -f makefile_real --no-print-directory $@
 
 uninstall:
-	@make uninstall -j$(CORES) -f makefile_real $@
+	@make uninstall -j$(CORES) -f makefile_real --no-print-directory $@
+
+docs:
+	@make docs -j$(CORES) -f makefile_real --no-print-directory $@
 
 endif
 

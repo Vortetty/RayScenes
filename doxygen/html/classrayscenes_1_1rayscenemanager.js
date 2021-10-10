@@ -1,6 +1,7 @@
 var classrayscenes_1_1rayscenemanager =
 [
     [ "rayscene", "classrayscenes_1_1rayscenemanager_1_1rayscene.html", "classrayscenes_1_1rayscenemanager_1_1rayscene" ],
+    [ "rayscenefunc", "classrayscenes_1_1rayscenemanager.html#ad5a92739489efaed2708f26e614c2608", null ],
     [ "rayscenemanager", "classrayscenes_1_1rayscenemanager.html#ad15870deb897e8ffe4d5c39a7b70738f", null ],
     [ "rayscenemanager", "classrayscenes_1_1rayscenemanager.html#a379e5fd1339fc3b75a79a84a20c6d313", null ],
     [ "addActiveScene", "classrayscenes_1_1rayscenemanager.html#a53c06225a494443c39b251269086afe8", null ],

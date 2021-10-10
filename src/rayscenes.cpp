@@ -8,10 +8,9 @@
 #include <tuple>
 
 namespace rayscenes {
-	typedef void(*rayscenefunc)(rayscenes::rayscenemanager&, bool);
-
 	class rayscenemanager {
 	public:
+		typedef void(*rayscenefunc)(rayscenes::rayscenemanager&, bool);
 		
         class rayscene {
         public:

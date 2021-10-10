@@ -14,6 +14,12 @@ Ray\+Scene\+Manager class, manages rayscenes.
 \item 
 class \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}
 \begin{DoxyCompactList}\small\item\em Ray\+Scene class, manages a single scene, it is mostly an abstraction for the scene functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}\label{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}} 
+typedef void($\ast$ {\bfseries rayscenefunc}) (\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool)
+\begin{DoxyCompactList}\small\item\em Type for the function for a rayscene, expands to {\ttfamily void ($\ast$)(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}}\&, bool)} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,7 +36,7 @@ void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600c
 \begin{DoxyCompactList}\small\item\em Get a scene\textquotesingle{}s object by id. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{add\+Scene}} (std\+::string id, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} scene)
 \begin{DoxyCompactList}\small\item\em Add a scene to the map. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}{add\+Scene}} (std\+::string id, \mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}} func)
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}{add\+Scene}} (std\+::string id, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} func)
 \begin{DoxyCompactList}\small\item\em Add a scene to the map given a function not a scene. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{remove\+Scene}} (std\+::string id)
 \begin{DoxyCompactList}\small\item\em Remove a scene from the map by id. \end{DoxyCompactList}\item 
@@ -128,7 +134,7 @@ Add a scene to the map.
 \index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
 \index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
 \doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{\mbox{\hyperlink{namespacerayscenes_a4cab8339478a543a2e0119de9903221b}{rayscenefunc}}}]{func }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}}}]{func }\end{DoxyParamCaption})}
 
 
 

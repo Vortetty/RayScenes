@@ -120,10 +120,12 @@ ifeq ($(shell id -u),0)
 	-rm -f /usr/share/applications/$(DESKTOP_FILE_NAME)
 else
 	@echo -e "+-----------------------------------------+"
-	@echo -e "| \e[1;31mYou must be root to install the program\e[0m |"
+	@echo -e "| \e[1;31mYou must be root to uninstall the program\e[0m |"
 	@echo -e "+-----------------------------------------+"
 endif
 
+docs:
+	doxygen Doxyfile
 
 $(C_OBJ_FILES): %.o: %.c
 	clang -std=c99 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)

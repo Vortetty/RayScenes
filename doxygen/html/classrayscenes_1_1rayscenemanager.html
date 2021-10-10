@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('classrayscenes_1_1rayscenemanager.html
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classrayscenes_1_1rayscenemanager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">rayscenes::rayscenemanager Class Reference</div></div>
@@ -123,6 +124,13 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager_1_1rayscene.html">rayscene</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RayScene class, manages a single scene, it is mostly an abstraction for the scene functions.  <a href="classrayscenes_1_1rayscenemanager_1_1rayscene.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad5a92739489efaed2708f26e614c2608"><td class="memItemLeft" align="right" valign="top"><a id="ad5a92739489efaed2708f26e614c2608" name="ad5a92739489efaed2708f26e614c2608"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>rayscenefunc</b>) (<a class="el" href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a> &amp;, bool)</td></tr>
+<tr class="memdesc:ad5a92739489efaed2708f26e614c2608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for the function for a rayscene, expands to <code>void (*)(<a class="el" href="classrayscenes_1_1rayscenemanager.html" title="RaySceneManager class, manages rayscenes.">rayscenes::rayscenemanager</a>&amp;, bool)</code> <br /></td></tr>
+<tr class="separator:ad5a92739489efaed2708f26e614c2608"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -145,7 +153,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ca06293580171c5ec6c3bf4aaabc177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">addScene</a> (std::string id, <a class="el" href="classrayscenes_1_1rayscenemanager_1_1rayscene.html">rayscene</a> scene)</td></tr>
 <tr class="memdesc:a7ca06293580171c5ec6c3bf4aaabc177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a scene to the map.  <a href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">More...</a><br /></td></tr>
 <tr class="separator:a7ca06293580171c5ec6c3bf4aaabc177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f8487f3f378c1c33e640f5cfa09cd4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a7f8487f3f378c1c33e640f5cfa09cd4a">addScene</a> (std::string id, <a class="el" href="namespacerayscenes.html#a4cab8339478a543a2e0119de9903221b">rayscenefunc</a> func)</td></tr>
+<tr class="memitem:a7f8487f3f378c1c33e640f5cfa09cd4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a7f8487f3f378c1c33e640f5cfa09cd4a">addScene</a> (std::string id, <a class="el" href="classrayscenes_1_1rayscenemanager.html#ad5a92739489efaed2708f26e614c2608">rayscenefunc</a> func)</td></tr>
 <tr class="memdesc:a7f8487f3f378c1c33e640f5cfa09cd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a scene to the map given a function not a scene.  <a href="classrayscenes_1_1rayscenemanager.html#a7f8487f3f378c1c33e640f5cfa09cd4a">More...</a><br /></td></tr>
 <tr class="separator:a7f8487f3f378c1c33e640f5cfa09cd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a513c300aed914c5978a031add1b43033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a513c300aed914c5978a031add1b43033">removeScene</a> (std::string id)</td></tr>
@@ -314,7 +322,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>renderActiveScenes</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacerayscenes.html#a4cab8339478a543a2e0119de9903221b">rayscenefunc</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classrayscenes_1_1rayscenemanager.html#ad5a92739489efaed2708f26e614c2608">rayscenefunc</a>&#160;</td>
           <td class="paramname"><em>func</em>&#160;</td>
         </tr>
         <tr>

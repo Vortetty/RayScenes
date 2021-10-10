@@ -15,17 +15,17 @@
 namespace rayscenes {
 
 	/**
-	 * @brief Type for the function for a rayscene, expands to `void (*)(rayscenes::rayscenemanager&, bool)`
-	 * 
-	 */
-	typedef void(*rayscenefunc)(rayscenes::rayscenemanager&, bool);
-
-	/**
 	 * @brief RaySceneManager class, manages rayscenes
 	 * 
 	 */
 	class rayscenemanager {
 	public:
+
+		/**
+		 * @brief Type for the function for a rayscene, expands to `void (*)(rayscenes::rayscenemanager&, bool)`
+		 * 
+		 */
+		typedef void(*rayscenefunc)(rayscenes::rayscenemanager&, bool);
 
 		/**
 		 * @brief RayScene class, manages a single scene, it is mostly an abstraction for the scene functions

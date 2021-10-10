@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rayscenefunc_0',['rayscenefunc',['../namespacerayscenes.html#a4cab8339478a543a2e0119de9903221b',1,'rayscenes']]]
+  ['rayscenefunc_0',['rayscenefunc',['../classrayscenes_1_1rayscenemanager.html#ad5a92739489efaed2708f26e614c2608',1,'rayscenes::rayscenemanager']]]
 ];
