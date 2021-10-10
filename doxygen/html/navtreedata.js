@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "RayScenes", "index.html", [
+    [ "Example usage", "index.html#autotoc_md1", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],

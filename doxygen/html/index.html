@@ -6,17 +6,12 @@
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <!-- BEGIN opengraph metadata -->
-<meta property="og:title" content="Doxygen Awesome" />
-<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
-<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
-<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
+<meta property="og:title" content="RayScenes" />
+<!-- <meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" /> -->
+<meta property="og:description" content="A C++17/C++20 library for easily managing guis/scenes/etc, made for use with raylib but should always be compatible with normal C++!" />
+<meta property="og:url" content="http://rayscenes.vortetty.tk/doxygen/html/" />
 <!-- END opengraph metadata -->
-<!-- BEGIN twitter metadata -->
-<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
-<meta name="twitter:title" content="Doxygen Awesome" />
-<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
-<!-- END twitter metadata -->
-<title>RayScenes: Main Page</title>
+<title>RayScenes: RayScenes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -104,10 +99,90 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">RayScenes Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RayScenes </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p ><a class="anchor" id="md_README"></a> A library adding an easy way to do scenes for raylib(or really anything)!</p>
+<p >Single header, just copy <code>src/rayscenes.cpp</code> to your project, and rename it to <code><a class="el" href="rayscenes_8hpp_source.html">rayscenes.hpp</a></code>. You can also just copy <code>src/rayscenes.cpp</code> to your source folder and <code><a class="el" href="rayscenes_8hpp_source.html">include/rayscenes.hpp</a></code> to your header folder and link the .cpp separately.</p>
+<p >Written in for C++20, should support C++17.</p>
+<p ><a href="http://rayscenes.vortetty.tk/doxygen/html/">Docs</a></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Example usage</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#define RAYGUI_IMPLEMENTATION</span></div>
+<div class="line"><span class="preprocessor">#define RAYGUI_SUPPORT_RICONS</span></div>
+<div class="line"><span class="preprocessor">#include &quot;raylib.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;raygui.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#undef RAYGUI_IMPLEMENTATION</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;rayscenes.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line">Rectangle centerRect(Vector2 screenSize, Vector2 size) {</div>
+<div class="line">    <span class="keywordflow">return</span> (Rectangle) { (screenSize.x - size.x) / 2, (screenSize.y - size.y) / 2, size.x, size.y };</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> mainDrawing(<a class="code hl_class" href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a> &amp;rsm, <span class="keywordtype">bool</span> isTop) {</div>
+<div class="line">    ClearBackground({ 255, 0, 0, 255 });</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Text</span></div>
+<div class="line">    std::string text = <span class="stringliteral">&quot;Red!&quot;</span>;</div>
+<div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {20, 20, 20, 255});</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Cycle scene</span></div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;tertiary&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({492, 0, 20, 512}, GuiIconText(RICON_ARROW_RIGHT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;secondary&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> secondaryDrawing(<a class="code hl_class" href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a> &amp;rsm, <span class="keywordtype">bool</span> isTop) {</div>
+<div class="line">    ClearBackground({ 0, 255, 0, 255 });</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Text</span></div>
+<div class="line">    std::string text = <span class="stringliteral">&quot;Green!&quot;</span>;</div>
+<div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {5, 0, 255, 255});</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Cycle scene</span></div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;main&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({492, 0, 20, 512}, GuiIconText(RICON_ARROW_RIGHT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;tertiary&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> tertiaryDrawing(<a class="code hl_class" href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a> &amp;rsm, <span class="keywordtype">bool</span> isTop) {</div>
+<div class="line">    ClearBackground({ 0, 0, 255, 255 });</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Text</span></div>
+<div class="line">    std::string text = <span class="stringliteral">&quot;Blue&quot;</span>;</div>
+<div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {102, 255, 0, 255});</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Cycle scene</span></div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;secondary&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (GuiButton({492, 0, 20, 512}, GuiIconText(RICON_ARROW_RIGHT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;main&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line">    InitWindow(512, 512, <span class="stringliteral">&quot;Rayscenes example&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a> rsm;</div>
+<div class="line">    rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">addScene</a>(<span class="stringliteral">&quot;main&quot;</span>, mainDrawing);</div>
+<div class="line">    rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">addScene</a>(<span class="stringliteral">&quot;secondary&quot;</span>, secondaryDrawing);</div>
+<div class="line">    rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">addScene</a>(<span class="stringliteral">&quot;tertiary&quot;</span>, tertiaryDrawing);</div>
+<div class="line"> </div>
+<div class="line">    rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;main&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (!WindowShouldClose()) {</div>
+<div class="line">        BeginDrawing();</div>
+<div class="line">        rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#a238e5ad969e00ca9af0f582cde6fc321">renderActiveScenes</a>();</div>
+<div class="line">        EndDrawing();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    CloseWindow();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a></div><div class="ttdoc">RaySceneManager class, manages rayscenes.</div><div class="ttdef"><b>Definition:</b> rayscenes.hpp:21</div></div>
+<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_a238e5ad969e00ca9af0f582cde6fc321"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#a238e5ad969e00ca9af0f582cde6fc321">rayscenes::rayscenemanager::renderActiveScenes</a></div><div class="ttdeci">void renderActiveScenes()</div><div class="ttdoc">Renders all scenes that are active, it is safe to modify the list during this running as it first cre...</div></div>
+<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_a7ca06293580171c5ec6c3bf4aaabc177"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">rayscenes::rayscenemanager::addScene</a></div><div class="ttdeci">void addScene(std::string id, rayscene scene)</div><div class="ttdoc">Add a scene to the map.</div></div>
+<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_aaa383f7aaaae12f34516499b91854527"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">rayscenes::rayscenemanager::setActiveScene</a></div><div class="ttdeci">void setActiveScene(std::string id)</div><div class="ttdoc">Disables all scenes sets a new one as active.</div></div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

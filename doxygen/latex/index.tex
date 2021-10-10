@@ -1,0 +1,83 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ A library adding an easy way to do scenes for raylib(or really anything)!
+
+Single header, just copy {\ttfamily src/rayscenes.\+cpp} to your project, and rename it to {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{rayscenes.\+hpp}}}. You can also just copy {\ttfamily src/rayscenes.\+cpp} to your source folder and {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{include/rayscenes.\+hpp}}} to your header folder and link the .cpp separately.
+
+Written in for C++20, should support C++17.
+
+\href{http://rayscenes.vortetty.tk/doxygen/html/}{\texttt{ Docs}}\hypertarget{index_autotoc_md1}{}\doxysection{Example usage}\label{index_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define RAYGUI\_IMPLEMENTATION}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define RAYGUI\_SUPPORT\_RICONS}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}raylib.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}raygui.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#undef RAYGUI\_IMPLEMENTATION}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}rayscenes.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{Rectangle centerRect(Vector2 screenSize, Vector2 size) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} (Rectangle) \{ (screenSize.x -\/ size.x) / 2, (screenSize.y -\/ size.y) / 2, size.x, size.y \};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} mainDrawing(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}} \&rsm, \textcolor{keywordtype}{bool} isTop) \{}
+\DoxyCodeLine{    ClearBackground(\{ 255, 0, 0, 255 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Text}}
+\DoxyCodeLine{    std::string text = \textcolor{stringliteral}{"{}Red!"{}};}
+\DoxyCodeLine{    Vector2 size = MeasureTextEx(guiFont, text.c\_str(), 20.0, 2.0);}
+\DoxyCodeLine{    DrawText(text.c\_str(), 512/2-\/size.x/2, 512/2-\/size.y/2, 20.0, \{20, 20, 20, 255\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Cycle scene}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{0, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_LEFT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}tertiary"{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{492, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_RIGHT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}secondary"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordtype}{void} secondaryDrawing(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}} \&rsm, \textcolor{keywordtype}{bool} isTop) \{}
+\DoxyCodeLine{    ClearBackground(\{ 0, 255, 0, 255 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Text}}
+\DoxyCodeLine{    std::string text = \textcolor{stringliteral}{"{}Green!"{}};}
+\DoxyCodeLine{    Vector2 size = MeasureTextEx(guiFont, text.c\_str(), 20.0, 2.0);}
+\DoxyCodeLine{    DrawText(text.c\_str(), 512/2-\/size.x/2, 512/2-\/size.y/2, 20.0, \{5, 0, 255, 255\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Cycle scene}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{0, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_LEFT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}main"{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{492, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_RIGHT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}tertiary"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordtype}{void} tertiaryDrawing(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}} \&rsm, \textcolor{keywordtype}{bool} isTop) \{}
+\DoxyCodeLine{    ClearBackground(\{ 0, 0, 255, 255 \});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Text}}
+\DoxyCodeLine{    std::string text = \textcolor{stringliteral}{"{}Blue"{}};}
+\DoxyCodeLine{    Vector2 size = MeasureTextEx(guiFont, text.c\_str(), 20.0, 2.0);}
+\DoxyCodeLine{    DrawText(text.c\_str(), 512/2-\/size.x/2, 512/2-\/size.y/2, 20.0, \{102, 255, 0, 255\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{// Cycle scene}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{0, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_LEFT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}secondary"{}});}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (GuiButton(\{492, 0, 20, 512\}, GuiIconText(RICON\_ARROW\_RIGHT, \textcolor{stringliteral}{"{}"{}})) \&\& isTop) rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}main"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]) \{}
+\DoxyCodeLine{    InitWindow(512, 512, \textcolor{stringliteral}{"{}Rayscenes example"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}} rsm;}
+\DoxyCodeLine{    rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(\textcolor{stringliteral}{"{}main"{}}, mainDrawing);}
+\DoxyCodeLine{    rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(\textcolor{stringliteral}{"{}secondary"{}}, secondaryDrawing);}
+\DoxyCodeLine{    rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(\textcolor{stringliteral}{"{}tertiary"{}}, tertiaryDrawing);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(\textcolor{stringliteral}{"{}main"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while} (!WindowShouldClose()) \{}
+\DoxyCodeLine{        BeginDrawing();}
+\DoxyCodeLine{        rsm.\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}{renderActiveScenes}}();}
+\DoxyCodeLine{        EndDrawing();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    CloseWindow();}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
