@@ -127,7 +127,7 @@ Example usage</h1>
 <div class="line">    <span class="comment">// Text</span></div>
 <div class="line">    std::string text = <span class="stringliteral">&quot;Red!&quot;</span>;</div>
 <div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
-<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {20, 20, 20, 255});</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {0, 255, 0, 255});</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Cycle scene</span></div>
 <div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;tertiary&quot;</span>);</div>
@@ -139,7 +139,7 @@ Example usage</h1>
 <div class="line">    <span class="comment">// Text</span></div>
 <div class="line">    std::string text = <span class="stringliteral">&quot;Green!&quot;</span>;</div>
 <div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
-<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {5, 0, 255, 255});</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {255, 0, 0, 255});</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Cycle scene</span></div>
 <div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;main&quot;</span>);</div>
@@ -151,7 +151,7 @@ Example usage</h1>
 <div class="line">    <span class="comment">// Text</span></div>
 <div class="line">    std::string text = <span class="stringliteral">&quot;Blue&quot;</span>;</div>
 <div class="line">    Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);</div>
-<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {102, 255, 0, 255});</div>
+<div class="line">    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {0, 255, 0, 255});</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Cycle scene</span></div>
 <div class="line">    <span class="keywordflow">if</span> (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, <span class="stringliteral">&quot;&quot;</span>)) &amp;&amp; isTop) rsm.<a class="code hl_function" href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">setActiveScene</a>(<span class="stringliteral">&quot;secondary&quot;</span>);</div>

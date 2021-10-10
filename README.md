@@ -30,7 +30,7 @@ void mainDrawing(rayscenes::rayscenemanager &rsm, bool isTop) {
     // Text
     std::string text = "Red!";
     Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);
-    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {20, 20, 20, 255});
+    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {0, 255, 0, 255});
 
     // Cycle scene
     if (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, "")) && isTop) rsm.setActiveScene("tertiary");
@@ -42,7 +42,7 @@ void secondaryDrawing(rayscenes::rayscenemanager &rsm, bool isTop) {
     // Text
     std::string text = "Green!";
     Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);
-    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {5, 0, 255, 255});
+    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {255, 0, 0, 255});
 
     // Cycle scene
     if (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, "")) && isTop) rsm.setActiveScene("main");
@@ -54,7 +54,7 @@ void tertiaryDrawing(rayscenes::rayscenemanager &rsm, bool isTop) {
     // Text
     std::string text = "Blue";
     Vector2 size = MeasureTextEx(guiFont, text.c_str(), 20.0, 2.0);
-    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {102, 255, 0, 255});
+    DrawText(text.c_str(), 512/2-size.x/2, 512/2-size.y/2, 20.0, {0, 255, 0, 255});
 
     // Cycle scene
     if (GuiButton({0, 0, 20, 512}, GuiIconText(RICON_ARROW_LEFT, "")) && isTop) rsm.setActiveScene("secondary");
