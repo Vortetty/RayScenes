@@ -2,8 +2,11 @@
 
 A library adding an easy way to do scenes for raylib(or really anything)!
 
-Single header, just copy `src/rayscenes.cpp` to your project, and rename it to `rayscenes.hpp`.
-You can also just copy `src/rayscenes.cpp` to your source folder and `include/rayscenes.hpp` to your header folder and link the .cpp separately.
+Supports single header and header/implementation modes:
+
+- For single header just copy `rayscenes.hpp` from the root dir and include it
+  - To use the implementation, define `RAYSCENE_IMPLEMENTATION` before including `rayscenes.hpp`
+- For header/implementation mode, copy `include/rayscenes.hpp` and `src/rayscenes.cpp` from the root dir and include them
 
 Written in for C++20, should support C++17.
 

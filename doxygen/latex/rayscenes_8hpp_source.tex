@@ -2,90 +2,96 @@
 \label{rayscenes_8hpp_source}\index{include/rayscenes.hpp@{include/rayscenes.hpp}}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <deque>}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <unordered\_map>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <any>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <functional>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <tuple>}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 }
-\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacerayscenes}{rayscenes}} \{}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Licensed under the Apache License, Version 2.0}}
+\DoxyCodeLine{3 \textcolor{comment}{// See the LICENSE file in the project root for more information}}
+\DoxyCodeLine{4 \textcolor{comment}{// © Winter/Vortetty 2021 }}
+\DoxyCodeLine{5 \textcolor{comment}{//}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <any>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{15 }
 \DoxyCodeLine{16 }
-\DoxyCodeLine{21     \textcolor{keyword}{class }\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \{}
-\DoxyCodeLine{22     \textcolor{keyword}{public}:}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{28         \textcolor{keyword}{typedef} void(*\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}})(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}}\&, bool);}
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacerayscenes}{rayscenes}} \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27     \textcolor{keyword}{class }\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \{}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{34         \textcolor{keyword}{class }\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} \{}
-\DoxyCodeLine{35         \textcolor{keyword}{public}:}
-\DoxyCodeLine{41             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a2314e80f1b152d83d236446d5c173bbe}{rayscene}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} \_func);}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{47             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a91c9722506af0d73aaa4699f2db0eee0}{rayscene}}();}
+\DoxyCodeLine{34         \textcolor{keyword}{typedef} void(*\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}})(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}}\&, bool);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40         \textcolor{keyword}{class }\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} \{}
+\DoxyCodeLine{41         \textcolor{keyword}{public}:}
+\DoxyCodeLine{47             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a2314e80f1b152d83d236446d5c173bbe}{rayscene}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} \_func);}
 \DoxyCodeLine{48 }
-\DoxyCodeLine{49 }
-\DoxyCodeLine{55             \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a9b25e44abb4f392637904c58ff9f0370}{setFunc}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} \_func);}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{63             \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a375157b6de8917d9ce8e39382a86b362}{call}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&rsm, \textcolor{keywordtype}{bool} isTop);}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65         \textcolor{keyword}{private}:}
-\DoxyCodeLine{70             \textcolor{keywordtype}{bool} funcSet;}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{76             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} func;}
-\DoxyCodeLine{77         \};}
-\DoxyCodeLine{78 }
-\DoxyCodeLine{83         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad15870deb897e8ffe4d5c39a7b70738f}{rayscenemanager}}();}
+\DoxyCodeLine{53             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a91c9722506af0d73aaa4699f2db0eee0}{rayscene}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{61             \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a9b25e44abb4f392637904c58ff9f0370}{setFunc}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} \_func);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{69             \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene_a375157b6de8917d9ce8e39382a86b362}{call}}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}} \&rsm, \textcolor{keywordtype}{bool} isTop);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keyword}{private}:}
+\DoxyCodeLine{76             \textcolor{keywordtype}{bool} funcSet;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82             \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} func;}
+\DoxyCodeLine{83         \};}
 \DoxyCodeLine{84 }
-\DoxyCodeLine{90         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a379e5fd1339fc3b75a79a84a20c6d313}{rayscenemanager}}(\textcolor{keyword}{const} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}}\& r);}
-\DoxyCodeLine{91 }
-\DoxyCodeLine{92 }
-\DoxyCodeLine{98         std::unordered\_map<std::string, rayscene>\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a955ba9d872b8e1bfbf29c9d9940a11ff}{getAllScenes}}();}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{105         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600cf2920eb22}{setAllScenes}}(std::unordered\_map<std::string, rayscene> newScenes);}
-\DoxyCodeLine{106 }
-\DoxyCodeLine{113         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a3710d749c475903d7822e39b1c17b66f}{getScene}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{121         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(std::string \textcolor{keywordtype}{id}, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} scene);}
-\DoxyCodeLine{122 }
-\DoxyCodeLine{129         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}{addScene}}(std::string \textcolor{keywordtype}{id}, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} func);}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{136         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{removeScene}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{137 }
-\DoxyCodeLine{138 }
-\DoxyCodeLine{144         std::deque<std::string>\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}{getActiveScenes}}();}
-\DoxyCodeLine{145 }
-\DoxyCodeLine{151         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a41ed0f29d4c5dfacf9835d0a3a556b5e}{setActiveScenes}}(std::deque<std::string> ids);}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{158         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{159 }
-\DoxyCodeLine{165         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a53c06225a494443c39b251269086afe8}{addActiveScene}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{166 }
-\DoxyCodeLine{172         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a54ac3a46e1bfbed6729568416e0c3f6c}{addActiveScenes}}(std::deque<std::string> ids);}
-\DoxyCodeLine{173 }
-\DoxyCodeLine{174 }
-\DoxyCodeLine{180         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ac91695a55fc0562891f47a7b81e40999}{removeActiveScene}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{181 }
-\DoxyCodeLine{187         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ab550ee7c864f593d63ca6802494830b2}{removeActiveScenes}}(std::deque<std::string> ids);}
-\DoxyCodeLine{188 }
-\DoxyCodeLine{194         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}{clearActiveScenes}}(std::string \textcolor{keywordtype}{id});}
-\DoxyCodeLine{195 }
-\DoxyCodeLine{196 }
-\DoxyCodeLine{201         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}{renderActiveScenes}}();}
+\DoxyCodeLine{89         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad15870deb897e8ffe4d5c39a7b70738f}{rayscenemanager}}();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{96         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a379e5fd1339fc3b75a79a84a20c6d313}{rayscenemanager}}(\textcolor{keyword}{const} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenemanager}}\& r);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{104         std::unordered\_map<std::string, rayscene>\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a955ba9d872b8e1bfbf29c9d9940a11ff}{getAllScenes}}();}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{111         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a8d89fe1e13e5c3cf76e600cf2920eb22}{setAllScenes}}(std::unordered\_map<std::string, rayscene> newScenes);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{119         \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a3710d749c475903d7822e39b1c17b66f}{getScene}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{127         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(std::string \textcolor{keywordtype}{id}, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} scene);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{135         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7f8487f3f378c1c33e640f5cfa09cd4a}{addScene}}(std::string \textcolor{keywordtype}{id}, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ad5a92739489efaed2708f26e614c2608}{rayscenefunc}} func);}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{142         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{removeScene}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
+\DoxyCodeLine{150         std::deque<std::string>\& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}{getActiveScenes}}();}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{157         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a41ed0f29d4c5dfacf9835d0a3a556b5e}{setActiveScenes}}(std::deque<std::string> ids);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{164         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aaa383f7aaaae12f34516499b91854527}{setActiveScene}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{171         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a53c06225a494443c39b251269086afe8}{addActiveScene}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{178         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a54ac3a46e1bfbed6729568416e0c3f6c}{addActiveScenes}}(std::deque<std::string> ids);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 }
+\DoxyCodeLine{186         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ac91695a55fc0562891f47a7b81e40999}{removeActiveScene}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{193         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_ab550ee7c864f593d63ca6802494830b2}{removeActiveScenes}}(std::deque<std::string> ids);}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{200         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}{clearActiveScenes}}(std::string \textcolor{keywordtype}{id});}
+\DoxyCodeLine{201 }
 \DoxyCodeLine{202 }
-\DoxyCodeLine{203     \textcolor{keyword}{private}:}
-\DoxyCodeLine{208         std::unordered\_map<std::string, rayscene> scenes;}
-\DoxyCodeLine{209 }
-\DoxyCodeLine{214         std::deque<std::string> activeScenes;}
+\DoxyCodeLine{207         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}{renderActiveScenes}}();}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     \textcolor{keyword}{private}:}
+\DoxyCodeLine{214         std::unordered\_map<std::string, rayscene> scenes;}
 \DoxyCodeLine{215 }
-\DoxyCodeLine{222         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{223         \textcolor{keywordtype}{void} clear\_deque( std::deque<T> \&q );}
-\DoxyCodeLine{224     }
-\DoxyCodeLine{232         \textcolor{keyword}{template}<\textcolor{keyword}{typename} K, \textcolor{keyword}{typename} V>}
-\DoxyCodeLine{233         \textcolor{keywordtype}{void} clear\_unordered\_map( std::unordered\_map<K, V> \&q );}
-\DoxyCodeLine{234     \};}
-\DoxyCodeLine{235 }
-\DoxyCodeLine{236 \}}
+\DoxyCodeLine{220         std::deque<std::string> activeScenes;}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{228         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{229         \textcolor{keywordtype}{void} clear\_deque( std::deque<T> \&q );}
+\DoxyCodeLine{230     }
+\DoxyCodeLine{238         \textcolor{keyword}{template}<\textcolor{keyword}{typename} K, \textcolor{keyword}{typename} V>}
+\DoxyCodeLine{239         \textcolor{keywordtype}{void} clear\_unordered\_map( std::unordered\_map<K, V> \&q );}
+\DoxyCodeLine{240     \};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \}}
 
 \end{DoxyCode}

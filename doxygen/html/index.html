@@ -104,7 +104,14 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_README"></a> A library adding an easy way to do scenes for raylib(or really anything)!</p>
-<p >Single header, just copy <code>src/rayscenes.cpp</code> to your project, and rename it to <code><a class="el" href="rayscenes_8hpp_source.html">rayscenes.hpp</a></code>. You can also just copy <code>src/rayscenes.cpp</code> to your source folder and <code><a class="el" href="rayscenes_8hpp_source.html">include/rayscenes.hpp</a></code> to your header folder and link the .cpp separately.</p>
+<p >Supports single header and header/implementation modes:</p>
+<ul>
+<li>For single header just copy <code><a class="el" href="rayscenes_8hpp_source.html">rayscenes.hpp</a></code> from the root dir and include it<ul>
+<li>To use the implementation, define <code>RAYSCENE_IMPLEMENTATION</code> before including <code><a class="el" href="rayscenes_8hpp_source.html">rayscenes.hpp</a></code></li>
+</ul>
+</li>
+<li>For header/implementation mode, copy <code><a class="el" href="rayscenes_8hpp_source.html">include/rayscenes.hpp</a></code> and <code>src/rayscenes.cpp</code> from the root dir and include them</li>
+</ul>
 <p >Written in for C++20, should support C++17.</p>
 <p ><a href="http://rayscenes.vortetty.tk/doxygen/html/">Docs</a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
@@ -178,7 +185,7 @@ Example usage</h1>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a></div><div class="ttdoc">RaySceneManager class, manages rayscenes.</div><div class="ttdef"><b>Definition:</b> rayscenes.hpp:21</div></div>
+<div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html">rayscenes::rayscenemanager</a></div><div class="ttdoc">RaySceneManager class, manages rayscenes.</div><div class="ttdef"><b>Definition:</b> rayscenes.hpp:27</div></div>
 <div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_a238e5ad969e00ca9af0f582cde6fc321"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#a238e5ad969e00ca9af0f582cde6fc321">rayscenes::rayscenemanager::renderActiveScenes</a></div><div class="ttdeci">void renderActiveScenes()</div><div class="ttdoc">Renders all scenes that are active, it is safe to modify the list during this running as it first cre...</div></div>
 <div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_a7ca06293580171c5ec6c3bf4aaabc177"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#a7ca06293580171c5ec6c3bf4aaabc177">rayscenes::rayscenemanager::addScene</a></div><div class="ttdeci">void addScene(std::string id, rayscene scene)</div><div class="ttdoc">Add a scene to the map.</div></div>
 <div class="ttc" id="aclassrayscenes_1_1rayscenemanager_html_aaa383f7aaaae12f34516499b91854527"><div class="ttname"><a href="classrayscenes_1_1rayscenemanager.html#aaa383f7aaaae12f34516499b91854527">rayscenes::rayscenemanager::setActiveScene</a></div><div class="ttdeci">void setActiveScene(std::string id)</div><div class="ttdoc">Disables all scenes sets a new one as active.</div></div>

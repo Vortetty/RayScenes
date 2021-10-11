@@ -127,6 +127,9 @@ endif
 docs:
 	doxygen Doxyfile
 
+header:
+	python3 scripts/makeSingleHeader.py
+
 
 $(C_OBJ_FILES): %.o: %.c
 	clang -std=c99 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)

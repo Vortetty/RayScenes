@@ -2,7 +2,16 @@
 \Hypertarget{index_md_README}%
  A library adding an easy way to do scenes for raylib(or really anything)!
 
-Single header, just copy {\ttfamily src/rayscenes.\+cpp} to your project, and rename it to {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{rayscenes.\+hpp}}}. You can also just copy {\ttfamily src/rayscenes.\+cpp} to your source folder and {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{include/rayscenes.\+hpp}}} to your header folder and link the .cpp separately.
+Supports single header and header/implementation modes\+:
+
+
+\begin{DoxyItemize}
+\item For single header just copy {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{rayscenes.\+hpp}}} from the root dir and include it
+\begin{DoxyItemize}
+\item To use the implementation, define {\ttfamily RAYSCENE\+\_\+\+IMPLEMENTATION} before including {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{rayscenes.\+hpp}}}
+\end{DoxyItemize}
+\item For header/implementation mode, copy {\ttfamily \mbox{\hyperlink{rayscenes_8hpp_source}{include/rayscenes.\+hpp}}} and {\ttfamily src/rayscenes.\+cpp} from the root dir and include them
+\end{DoxyItemize}
 
 Written in for C++20, should support C++17.
 

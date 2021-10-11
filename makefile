@@ -31,6 +31,23 @@ uninstall:
 docs:
 	@make docs -j$(CORES) -f makefile_real --no-print-directory $@
 
+header:
+	@make header -j$(CORES) -f makefile_real --no-print-directory $@
+single: header
+single_header: header
+singleHeader: header
+gen_header: header
+gen_single_header: header
+genHeader: header
+genSingleHeader: header
+
+prep_publish: header docs
+publish: prep_publish
+	git add .
+	git commit
+	git pull
+	git push
+
 endif
 
 # mac
