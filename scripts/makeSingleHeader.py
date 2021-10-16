@@ -20,11 +20,17 @@ f"""//
 // © Winter/Vortetty 2021 
 //
 
+#ifndef RAYSCENES_HEADER_ALREADY_DONE
+#define RAYSCENES_HEADER_ALREADY_DONE
 {"".join(headerText)}
+#endif
 
 #ifdef RAYSCENES_IMPLEMENTATION
+#ifndef RAYSCENES_IMPLEMENTATION_ALREADY_DONE
+#define RAYSCENES_IMPLEMENTATION_ALREADY_DONE
 {"".join(srcText)}
-#endif\n"""
+#endif
+#endif\n""".replace("#pragma once", "")
 )
 
 header.close()

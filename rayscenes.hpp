@@ -5,7 +5,8 @@
 // © Winter/Vortetty 2021
 //
 
-#pragma once
+#ifndef RAYSCENES_HEADER_ALREADY_DONE
+#define RAYSCENES_HEADER_ALREADY_DONE
 
 #include <any>
 #include <deque>
@@ -247,7 +248,11 @@ private:
 
 } // namespace rayscenes
 
+#endif
+
 #ifdef RAYSCENES_IMPLEMENTATION
+#ifndef RAYSCENES_IMPLEMENTATION_ALREADY_DONE
+#define RAYSCENES_IMPLEMENTATION_ALREADY_DONE
 
 #include "rayscenes.hpp"
 
@@ -385,4 +390,5 @@ void rayscenemanager::clear_unordered_map(std::unordered_map<K, V> &q) {
 }
 } // namespace rayscenes
 
+#endif
 #endif
