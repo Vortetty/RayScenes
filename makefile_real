@@ -130,6 +130,16 @@ docs:
 header:
 	python3 scripts/makeSingleHeader.py
 
+install_deps:
+	$(eval python3Installed = $(shell command -v python3 >/dev/null 2>&1))
+ifneq ($(.SHELLSTATUS),0)
+	echo -e "+---------------------------------------------------+"
+	echo -e "| \e[1;31mYou must have python3 installed to run the script\e[0m |"
+	echo -e "+---------------------------------------------------+"
+endif
+	$(eval scriptPath = $(realpath scripts/setup.py))
+	python3 $(scriptPath)
+
 
 $(C_OBJ_FILES): %.o: %.c
 	clang -std=c99 -c -o $@ $< $(INCLUDE_DIRS) -pthreads -O3 $(IGNORE_ISO) -fPIC $(POLLY_OPTS) $(GDB_OPTS) $(DEFINES)

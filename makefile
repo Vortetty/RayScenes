@@ -47,6 +47,13 @@ publish: prep_publish
 	git commit
 	git pull
 	git push
+push: publish
+git: publish
+
+install_deps:
+	@make install_deps -j$(CORES) -f makefile_real --no-print-directory $@
+deps: install_deps
+setup: install_deps
 
 endif
 

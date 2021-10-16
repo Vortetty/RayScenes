@@ -6,7 +6,7 @@ Supports single header and header/implementation modes:
 
 - For single header just copy `rayscenes.hpp` from the root dir and include it
   - To use the implementation, define `RAYSCENE_IMPLEMENTATION` before including `rayscenes.hpp`
-- For header/implementation mode, copy `include/rayscenes.hpp` and `src/rayscenes.cpp` from the root dir and include them
+- For header/implementation separated, copy `include/rayscenes.hpp` and `src/rayscenes.cpp` from the root dir and include them
 
 Written in for C++20, should support C++17.
 
