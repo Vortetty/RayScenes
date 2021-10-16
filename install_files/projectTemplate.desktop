@@ -2,13 +2,13 @@
 [Desktop Entry]
 
 # Program name
-Name=Template Raylib Program
+Name=Rayscenes test
 
 # Executable, should be exact
-Exec=/opt/raylibProjectTemplate/main
+Exec=/opt/raysceneTest/main
 
 # Icon, should be exact
-Icon=/opt/raylibProjectTemplate/icon.ico
+Icon=/opt/raysceneTest/icon.ico
 
 # Unless this is a terminal app, leave true
 Terminal=false

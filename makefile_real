@@ -14,7 +14,7 @@ LINK_LIBRARIES = -L/usr/lib -Llib -ldl
 DEFINES = -D_DEFAULT_SOURCE -DPLATFORM_DESKTOP -DGRAPHICS_API_OPENGL_33 
 
 # Name of your project's install folder in the opt directory
-OPT_FOLDER_NAME = raylibProjectTemplate
+OPT_FOLDER_NAME = raysceneTest
 
 # Name of your project's desktop file
 DESKTOP_FILE_NAME = projectTemplate.desktop
