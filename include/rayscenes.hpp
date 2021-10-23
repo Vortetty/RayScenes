@@ -44,15 +44,15 @@ auto funcName = [](rayscenes::rayscenemanager &rsm, bool isTop) { \
 }; \
 sceneManager.addScene(sceneName, funcName);
 /**
- * @brief Sets the default scene
+ * @brief Sets the active scene
  * 
  */
-#define set_default_scene(sceneName) rsm.setDefaultScene(sceneName);
+#define set_active_scene(sceneName) rsm.setActiveScene(sceneName);
 /**
- * @brief Sets the default scene with a custom scene manager
+ * @brief Sets the active scene with a custom scene manager
  * 
  */
-#define set_default_scene_custom_manager(sceneManager, sceneName) sceneManager.setDefaultScene(sceneName);
+#define set_active_scene_custom_manager(sceneManager, sceneName) sceneManager.setActiveScene(sceneName);
 
 
 /**
