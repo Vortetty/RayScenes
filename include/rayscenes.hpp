@@ -43,6 +43,16 @@ auto funcName = [](rayscenes::rayscenemanager &rsm, bool isTop) { \
   __VA_ARGS__ \
 }; \
 sceneManager.addScene(sceneName, funcName);
+/**
+ * @brief Sets the default scene
+ * 
+ */
+#define set_default_scene(sceneName) rsm.setDefaultScene(sceneName);
+/**
+ * @brief Sets the default scene with a custom scene manager
+ * 
+ */
+#define set_default_scene_custom_manager(sceneManager, sceneName) sceneManager.setDefaultScene(sceneName);
 
 
 /**
