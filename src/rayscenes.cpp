@@ -84,7 +84,7 @@ namespace rayscenes {
 		rayscenemanager::rayscene&                                  rayscenemanager::getScene(std::string id) { return scenes[id]; }
 		void                                                        rayscenemanager::addScene(std::string id, rayscene scene) { scenes[id] = scene; }
 		void                                                        rayscenemanager::addScene(std::string id, void (*func)(rayscenes::rayscenemanager&, bool)) { scenes[id] = rayscene( rayscenefunc(func) );}
-		void                                                        rayscenemanager::addScene(std::string id, std::function<void(rayscenes::rayscenemanager&, bool)> func) { scenes[id] = rayscene( rayscenefunc(func) );}
+		void                                                        rayscenemanager::addScene(std::string id, std::function<void(rayscenes::rayscenemanager&, bool)>& func) { scenes[id] = rayscene( rayscenefunc(func) );}
 		void                                                        rayscenemanager::removeScene(std::string id) { scenes.erase(id); }
 
 		//

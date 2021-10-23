@@ -23,14 +23,14 @@
 \DoxyCodeLine{27 }
 \DoxyCodeLine{32 \textcolor{preprocessor}{\#define register\_rayscene(funcName, sceneName, ...) \(\backslash\)}}
 \DoxyCodeLine{33 \textcolor{preprocessor}{auto funcName = [](rayscenes::rayscenemanager \&rsm, bool isTop) \{ \(\backslash\)}}
-\DoxyCodeLine{34 \textcolor{preprocessor}{  \#\#\_\_VA\_ARGS\_\_ \(\backslash\)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{  \_\_VA\_ARGS\_\_ \(\backslash\)}}
 \DoxyCodeLine{35 \textcolor{preprocessor}{\}; \(\backslash\)}}
-\DoxyCodeLine{36 \textcolor{preprocessor}{\&rsm.addScene(funcName, sceneName);}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{rsm.addScene(sceneName, funcName);}}
 \DoxyCodeLine{41 \textcolor{preprocessor}{\#define register\_rayscene\_custom\_manager(sceneManager, funcName, sceneName, ...) \(\backslash\)}}
 \DoxyCodeLine{42 \textcolor{preprocessor}{auto funcName = [](rayscenes::rayscenemanager \&rsm, bool isTop) \{ \(\backslash\)}}
-\DoxyCodeLine{43 \textcolor{preprocessor}{  \#\#\_\_VA\_ARGS\_\_ \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{  \_\_VA\_ARGS\_\_ \(\backslash\)}}
 \DoxyCodeLine{44 \textcolor{preprocessor}{\}; \(\backslash\)}}
-\DoxyCodeLine{45 \textcolor{preprocessor}{\&sceneManager.addScene(funcName, sceneName);}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{sceneManager.addScene(sceneName, funcName);}}
 \DoxyCodeLine{46 }
 \DoxyCodeLine{47 }
 \DoxyCodeLine{52 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacerayscenes}{rayscenes}} \{}
@@ -71,7 +71,7 @@
 \DoxyCodeLine{158         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(std::string \textcolor{keywordtype}{id}, \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}} scene);}
 \DoxyCodeLine{159 }
 \DoxyCodeLine{166         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a824ed1f9d9e7e7a9b44833c9ca9bc5a7}{addScene}}(std::string \textcolor{keywordtype}{id}, \textcolor{keywordtype}{void} (*func)(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}}\&, \textcolor{keywordtype}{bool}) );}
-\DoxyCodeLine{167         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(std::string \textcolor{keywordtype}{id}, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}}\&, \textcolor{keywordtype}{bool})> func);}
+\DoxyCodeLine{167         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}{addScene}}(std::string \textcolor{keywordtype}{id}, std::function<\textcolor{keywordtype}{void}(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes::rayscenemanager}}\&, \textcolor{keywordtype}{bool})>\& func);}
 \DoxyCodeLine{168 }
 \DoxyCodeLine{174         \textcolor{keywordtype}{void} \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{removeScene}}(std::string \textcolor{keywordtype}{id});}
 \DoxyCodeLine{175 }

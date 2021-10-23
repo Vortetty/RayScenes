@@ -31,18 +31,18 @@
  */
 #define register_rayscene(funcName, sceneName, ...) \
 auto funcName = [](rayscenes::rayscenemanager &rsm, bool isTop) { \
-  ##__VA_ARGS__ \
+  __VA_ARGS__ \
 }; \
-&rsm.addScene(funcName, sceneName);
+rsm.addScene(sceneName, funcName);
 /**
  * @brief Creates a rayscene and registers it with a custom scene manager
  * 
  */
 #define register_rayscene_custom_manager(sceneManager, funcName, sceneName, ...) \
 auto funcName = [](rayscenes::rayscenemanager &rsm, bool isTop) { \
-  ##__VA_ARGS__ \
+  __VA_ARGS__ \
 }; \
-&sceneManager.addScene(funcName, sceneName);
+sceneManager.addScene(sceneName, funcName);
 
 
 /**
@@ -164,7 +164,7 @@ namespace rayscenes {
 		 * @param func The func to link the id to
 		 */
 		void addScene(std::string id, void (*func)(rayscenes::rayscenemanager&, bool) );
-		void addScene(std::string id, std::function<void(rayscenes::rayscenemanager&, bool)> func);
+		void addScene(std::string id, std::function<void(rayscenes::rayscenemanager&, bool)>& func);
 
 		/**
 		 * @brief Remove a scene from the map by id
