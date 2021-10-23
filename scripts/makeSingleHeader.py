@@ -10,7 +10,7 @@ srcText = src.readlines()
 while srcText[0].startswith("//"):
     srcText.pop(0)
 
-out = open("rayscenes.hpp", "w+")
+out = open("rayscenes_sh.hpp", "w+")
 
 out.write(
 f"""//
