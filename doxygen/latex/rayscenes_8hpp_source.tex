@@ -33,8 +33,8 @@
 \DoxyCodeLine{45 \textcolor{preprocessor}{sceneManager.addScene(sceneName, funcName);}}
 \DoxyCodeLine{50 \textcolor{preprocessor}{\#define set\_active\_scene(sceneName) rsm.setActiveScene(sceneName);}}
 \DoxyCodeLine{55 \textcolor{preprocessor}{\#define set\_active\_scene\_custom\_manager(sceneManager, sceneName) sceneManager.setActiveScene(sceneName);}}
-\DoxyCodeLine{60 \textcolor{preprocessor}{\#define run\_active\_scenes(sceneName) rsm.setActiveScene(sceneName);}}
-\DoxyCodeLine{65 \textcolor{preprocessor}{\#define run\_active\_scenes\_custom\_manager(sceneManager, sceneName) sceneManager.setActiveScene(sceneName);}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define run\_active\_scenes() rsm.renderActiveScenes();}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define run\_active\_scenes\_custom\_manager(sceneManager) sceneManager.renderActiveScenes();}}
 \DoxyCodeLine{66 }
 \DoxyCodeLine{67 }
 \DoxyCodeLine{72 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacerayscenes}{rayscenes}} \{}

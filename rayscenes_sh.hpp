@@ -61,12 +61,12 @@ sceneManager.addScene(sceneName, funcName);
  * @brief Runs all active scenes
  * 
  */
-#define run_active_scenes(sceneName) rsm.setActiveScene(sceneName);
+#define run_active_scenes() rsm.renderActiveScenes();
 /**
  * @brief Runs all active scenes with a custom scene manager
  * 
  */
-#define run_active_scenes_custom_manager(sceneManager, sceneName) sceneManager.setActiveScene(sceneName);
+#define run_active_scenes_custom_manager(sceneManager) sceneManager.renderActiveScenes();
 
 
 /**
