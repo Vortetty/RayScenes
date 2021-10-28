@@ -7,9 +7,6 @@
 
 #ifndef RAYSCENES_HEADER_ALREADY_DONE
 #define RAYSCENES_HEADER_ALREADY_DONE
-
-
-
 #include <deque>
 #include <unordered_map>
 #include <string>
@@ -17,6 +14,7 @@
 #include <functional>
 #include <tuple>
 #include <variant>
+#include <typeindex>
 
 /**
  * @brief Create a rayscenemanager
@@ -68,12 +66,39 @@ sceneManager.addScene(sceneName, funcName);
  */
 #define run_active_scenes_custom_manager(sceneManager) sceneManager.renderActiveScenes();
 
-
 /**
  * @brief RayScenes namespace
  * 
  */
 namespace rayscenes {
+	namespace {
+		template<size_t N>
+		struct StringLiteral {
+			constexpr StringLiteral(const char (&str)[N]) {
+				std::copy_n(str, N, value);
+			}
+			
+			char value[N];
+		};
+	}
+
+	/**
+	 * @brief 
+	 * 
+	 */
+	class rayscenevar {
+	public:
+		rayscenevar(void* _ptr) : ptr(_ptr) {}
+		rayscenevar() {}
+
+		template<typename T>
+		T* getVal() { return (T*)ptr; }
+
+		void* getVal() { return ptr; }
+
+	private:
+		void *ptr;
+	};
 
 	/**
 	 * @brief RaySceneManager class, manages rayscenes
@@ -188,6 +213,12 @@ namespace rayscenes {
 		 * @param func The func to link the id to
 		 */
 		void addScene(std::string id, void (*func)(rayscenes::rayscenemanager&, bool) );
+		/**
+		 * @brief Add a scene to the map given a function not a scene
+		 * 
+		 * @param id The target id
+		 * @param func The func to link the id to
+		 */
 		void addScene(std::string id, std::function<void(rayscenes::rayscenemanager&, bool)>& func);
 
 		/**
@@ -262,6 +293,33 @@ namespace rayscenes {
 		 */
 		void renderActiveScenes();
 
+		/**
+		 * @brief Adds a variable to the list of variables to be passed to the active scenes
+		 * 
+		 * @param varName Name the variable should be accessed by
+		 * @param varType std::type_index of the variable
+		 * @param varValue Pointer to the variable as void*
+		 */
+		void addVar(std::string varName, std::type_index varType, void *varValue);
+
+		/**
+		 * @brief Adds a variable to the list of variables to be passed to the active scenes
+		 * 
+		 * @param varName Name the variable should be accessed by
+		 * @param var Pre-contructed rayscenevar to store
+		 */
+		void addVar(std::string varName, rayscenevar var);
+
+		rayscenevar getVar(std::string varName);
+
+		template<typename T>
+		T getVarVal(std::string varName) { 
+			return *(accessibleVars[varName].getVal<T>());
+		}
+		template<typename T, StringLiteral varName>
+		T getVarVal() { 
+			return *(accessibleVars[std::string(varName.value)].getVal<T>());
+		}
 	private:
 		/**
 		 * @brief The map of all scenes
@@ -270,10 +328,16 @@ namespace rayscenes {
 		std::unordered_map<std::string, rayscene> scenes;
 
 		/**
-		 * @brief The map of currently active scenes
+		 * @brief The list of currently active scenes
 		 * 
 		 */
 		std::deque<std::string> activeScenes;
+
+		/**
+		 * @brief list of variables to be passed to the active scenes
+		 * 
+		 */
+		std::unordered_map<std::string, rayscenevar> accessibleVars;
 
 		/**
 		 * @brief Clears a deque
@@ -296,7 +360,6 @@ namespace rayscenes {
 	};
 
 }
-
 #endif
 
 #ifdef RAYSCENES_IMPLEMENTATION
@@ -313,6 +376,7 @@ namespace rayscenes {
 #include <tuple>
 #include <optional>
 #include <typeinfo>
+#include <typeindex>
 
 namespace rayscenes {
 	namespace {
@@ -412,6 +476,19 @@ namespace rayscenes {
 			for (auto &i : temp) 
 				if (scenes.find(i) != scenes.end())
 					scenes[i].call(*this, activeScenes.back() == i);
+		}
+
+		// 
+		// Shared vars
+		//
+		void        rayscenemanager::addVar(std::string varName, std::type_index varType, void *varValue) { 
+			accessibleVars[varName] = rayscenevar(varValue);
+		}
+		void        rayscenemanager::addVar(std::string varName, rayscenevar var) { 
+			accessibleVars[varName] = var;
+		}
+		rayscenevar rayscenemanager::getVar(std::string varName) { 
+			return accessibleVars[varName];
 		}
 
 		//

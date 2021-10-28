@@ -14,6 +14,7 @@
 #include <tuple>
 #include <optional>
 #include <typeinfo>
+#include <typeindex>
 
 namespace rayscenes {
 	namespace {
@@ -113,6 +114,19 @@ namespace rayscenes {
 			for (auto &i : temp) 
 				if (scenes.find(i) != scenes.end())
 					scenes[i].call(*this, activeScenes.back() == i);
+		}
+
+		// 
+		// Shared vars
+		//
+		void        rayscenemanager::addVar(std::string varName, std::type_index varType, void *varValue) { 
+			accessibleVars[varName] = rayscenevar(varValue);
+		}
+		void        rayscenemanager::addVar(std::string varName, rayscenevar var) { 
+			accessibleVars[varName] = var;
+		}
+		rayscenevar rayscenemanager::getVar(std::string varName) { 
+			return accessibleVars[varName];
 		}
 
 		//

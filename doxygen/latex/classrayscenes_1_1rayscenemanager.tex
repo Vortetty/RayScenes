@@ -38,9 +38,8 @@ void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf
 \begin{DoxyCompactList}\small\item\em Add a scene to the map. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a824ed1f9d9e7e7a9b44833c9ca9bc5a7}{add\+Scene}} (std\+::string id, void($\ast$func)(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool))
 \begin{DoxyCompactList}\small\item\em Add a scene to the map given a function not a scene. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a0cf31701725c1c82c0b805fd363b2d2c}\label{classrayscenes_1_1rayscenemanager_a0cf31701725c1c82c0b805fd363b2d2c}} 
-void {\bfseries add\+Scene} (std\+::string id, std\+::function$<$ void(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool)$>$ \&func)
-\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a0cf31701725c1c82c0b805fd363b2d2c}{add\+Scene}} (std\+::string id, std\+::function$<$ void(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool)$>$ \&func)
+\begin{DoxyCompactList}\small\item\em Add a scene to the map given a function not a scene. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a513c300aed914c5978a031add1b43033}{remove\+Scene}} (std\+::string id)
 \begin{DoxyCompactList}\small\item\em Remove a scene from the map by id. \end{DoxyCompactList}\item 
 std\+::deque$<$ std\+::string $>$ \& \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_adf02f3ba9ffdb90925f6e54e21e04e59}{get\+Active\+Scenes}} ()
@@ -61,7 +60,20 @@ void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6
 \begin{DoxyCompactList}\small\item\em Clears all scenes from the list, effectively stopping rendering. It is recommended you always have one scene active or some other update loop to ensure the program stays working. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}\label{classrayscenes_1_1rayscenemanager_a238e5ad969e00ca9af0f582cde6fc321}} 
 void {\bfseries render\+Active\+Scenes} ()
-\begin{DoxyCompactList}\small\item\em Renders all scenes that are active, it is safe to modify the list during this running as it first creates a copy on the deque before beginning rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renders all scenes that are active, it is safe to modify the list during this running as it first creates a copy on the deque before beginning rendering. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_a5d5fd269d6fcccdd21c87da76a0c56e3}{add\+Var}} (std\+::string var\+Name, std\+::type\+\_\+index var\+Type, void $\ast$var\+Value)
+\begin{DoxyCompactList}\small\item\em Adds a variable to the list of variables to be passed to the active scenes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrayscenes_1_1rayscenemanager_aa27801eb7e2bdf8e90fdcf390b0b8468}{add\+Var}} (std\+::string var\+Name, \mbox{\hyperlink{classrayscenes_1_1rayscenevar}{rayscenevar}} var)
+\begin{DoxyCompactList}\small\item\em Adds a variable to the list of variables to be passed to the active scenes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a76a2aaba9e180dcce71bc2ce0a1e4fc2}\label{classrayscenes_1_1rayscenemanager_a76a2aaba9e180dcce71bc2ce0a1e4fc2}} 
+\mbox{\hyperlink{classrayscenes_1_1rayscenevar}{rayscenevar}} {\bfseries get\+Var} (std\+::string var\+Name)
+\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a93182f0c596821da2fecd2acc55f1512}\label{classrayscenes_1_1rayscenemanager_a93182f0c596821da2fecd2acc55f1512}} 
+{\footnotesize template$<$typename T $>$ }\\T {\bfseries get\+Var\+Val} (std\+::string var\+Name)
+\item 
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a8c2bf1dfb1598d85b6cf934cfc1120e0}\label{classrayscenes_1_1rayscenemanager_a8c2bf1dfb1598d85b6cf934cfc1120e0}} 
+{\footnotesize template$<$typename T , String\+Literal var\+Name$>$ }\\T {\bfseries get\+Var\+Val} ()
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -119,7 +131,7 @@ Adds scenes on top of the others given a deque of ids.
 \mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}\label{classrayscenes_1_1rayscenemanager_a7ca06293580171c5ec6c3bf4aaabc177}} 
 \index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
 \index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
-\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{\mbox{\hyperlink{classrayscenes_1_1rayscenemanager_1_1rayscene}{rayscene}}}]{scene }\end{DoxyParamCaption})}
 
 
@@ -133,10 +145,27 @@ Add a scene to the map.
 {\em scene} & The scene to link the id to \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a0cf31701725c1c82c0b805fd363b2d2c}\label{classrayscenes_1_1rayscenemanager_a0cf31701725c1c82c0b805fd363b2d2c}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
+\index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{std\+::function$<$ void(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool)$>$ \&}]{func }\end{DoxyParamCaption})}
+
+
+
+Add a scene to the map given a function not a scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The target id \\
+\hline
+{\em func} & The func to link the id to \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a824ed1f9d9e7e7a9b44833c9ca9bc5a7}\label{classrayscenes_1_1rayscenemanager_a824ed1f9d9e7e7a9b44833c9ca9bc5a7}} 
 \index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addScene@{addScene}}
 \index{addScene@{addScene}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
-\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Scene (\begin{DoxyParamCaption}\item[{std\+::string}]{id,  }\item[{void($\ast$)(\mbox{\hyperlink{classrayscenes_1_1rayscenemanager}{rayscenes\+::rayscenemanager}} \&, bool)}]{func }\end{DoxyParamCaption})}
 
 
@@ -148,6 +177,42 @@ Add a scene to the map given a function not a scene.
 {\em id} & The target id \\
 \hline
 {\em func} & The func to link the id to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_aa27801eb7e2bdf8e90fdcf390b0b8468}\label{classrayscenes_1_1rayscenemanager_aa27801eb7e2bdf8e90fdcf390b0b8468}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addVar@{addVar}}
+\index{addVar@{addVar}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addVar()}{addVar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{var\+Name,  }\item[{\mbox{\hyperlink{classrayscenes_1_1rayscenevar}{rayscenevar}}}]{var }\end{DoxyParamCaption})}
+
+
+
+Adds a variable to the list of variables to be passed to the active scenes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+Name} & Name the variable should be accessed by \\
+\hline
+{\em var} & Pre-\/contructed rayscenevar to store \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_a5d5fd269d6fcccdd21c87da76a0c56e3}\label{classrayscenes_1_1rayscenemanager_a5d5fd269d6fcccdd21c87da76a0c56e3}} 
+\index{rayscenes::rayscenemanager@{rayscenes::rayscenemanager}!addVar@{addVar}}
+\index{addVar@{addVar}!rayscenes::rayscenemanager@{rayscenes::rayscenemanager}}
+\doxysubsubsection{\texorpdfstring{addVar()}{addVar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void rayscenes\+::rayscenemanager\+::add\+Var (\begin{DoxyParamCaption}\item[{std\+::string}]{var\+Name,  }\item[{std\+::type\+\_\+index}]{var\+Type,  }\item[{void $\ast$}]{var\+Value }\end{DoxyParamCaption})}
+
+
+
+Adds a variable to the list of variables to be passed to the active scenes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+Name} & Name the variable should be accessed by \\
+\hline
+{\em var\+Type} & std\+::type\+\_\+index of the variable \\
+\hline
+{\em var\+Value} & Pointer to the variable as void$\ast$ \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}\label{classrayscenes_1_1rayscenemanager_aa355b32ae61285922daefa6697de4cbc}} 

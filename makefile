@@ -30,6 +30,7 @@ uninstall:
 
 docs:
 	@make docs -j$(CORES) -f makefile_real --no-print-directory $@
+doxygen: docs
 
 header:
 	@make header -j$(CORES) -f makefile_real --no-print-directory $@
