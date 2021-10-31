@@ -2,6 +2,8 @@
     "cmake.configureOnOpen": false,
     "files.associations": {
         "*.fsh": "shaderlab",
+        "Doxyfile": "ini",
+        "makefile_real": "makefile",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
@@ -76,6 +78,7 @@
         "valarray": "cpp",
         "variant": "cpp",
         "any": "cpp",
-        "makefile_real": "makefile"
+        "strstream": "cpp",
+        "cfenv": "cpp"
     }
 }

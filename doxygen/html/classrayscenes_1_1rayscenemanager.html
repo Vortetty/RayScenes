@@ -185,9 +185,9 @@ Public Member Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>renderActiveScenes</b> ()</td></tr>
 <tr class="memdesc:a238e5ad969e00ca9af0f582cde6fc321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders all scenes that are active, it is safe to modify the list during this running as it first creates a copy on the deque before beginning rendering. <br /></td></tr>
 <tr class="separator:a238e5ad969e00ca9af0f582cde6fc321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d5fd269d6fcccdd21c87da76a0c56e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a5d5fd269d6fcccdd21c87da76a0c56e3">addVar</a> (std::string varName, std::type_index varType, void *varValue)</td></tr>
-<tr class="memdesc:a5d5fd269d6fcccdd21c87da76a0c56e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variable to the list of variables to be passed to the active scenes.  <a href="classrayscenes_1_1rayscenemanager.html#a5d5fd269d6fcccdd21c87da76a0c56e3">More...</a><br /></td></tr>
-<tr class="separator:a5d5fd269d6fcccdd21c87da76a0c56e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ddb78e2c1c659fae8d130190105ceb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#a74ddb78e2c1c659fae8d130190105ceb">addVar</a> (std::string varName, void *varValue)</td></tr>
+<tr class="memdesc:a74ddb78e2c1c659fae8d130190105ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variable to the list of variables to be passed to the active scenes.  <a href="classrayscenes_1_1rayscenemanager.html#a74ddb78e2c1c659fae8d130190105ceb">More...</a><br /></td></tr>
+<tr class="separator:a74ddb78e2c1c659fae8d130190105ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa27801eb7e2bdf8e90fdcf390b0b8468"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrayscenes_1_1rayscenemanager.html#aa27801eb7e2bdf8e90fdcf390b0b8468">addVar</a> (std::string varName, <a class="el" href="classrayscenes_1_1rayscenevar.html">rayscenevar</a> var)</td></tr>
 <tr class="memdesc:aa27801eb7e2bdf8e90fdcf390b0b8468"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variable to the list of variables to be passed to the active scenes.  <a href="classrayscenes_1_1rayscenemanager.html#aa27801eb7e2bdf8e90fdcf390b0b8468">More...</a><br /></td></tr>
 <tr class="separator:aa27801eb7e2bdf8e90fdcf390b0b8468"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -202,9 +202,9 @@ template&lt;typename T &gt; </td></tr>
 template&lt;typename T , StringLiteral varName&gt; </td></tr>
 <tr class="memitem:a8c2bf1dfb1598d85b6cf934cfc1120e0"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>getVarVal</b> ()</td></tr>
 <tr class="separator:a8c2bf1dfb1598d85b6cf934cfc1120e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b6a8e428389dcca32fa88b51dc536d0"><td class="memItemLeft" align="right" valign="top"><a id="a7b6a8e428389dcca32fa88b51dc536d0" name="a7b6a8e428389dcca32fa88b51dc536d0"></a>
-<a class="el" href="classrayscenes_1_1rayscenevar.html">rayscenevar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (std::string id)</td></tr>
-<tr class="separator:a7b6a8e428389dcca32fa88b51dc536d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef881bfc7345a61de904a0fc073bc6a"><td class="memItemLeft" align="right" valign="top"><a id="a3ef881bfc7345a61de904a0fc073bc6a" name="a3ef881bfc7345a61de904a0fc073bc6a"></a>
+<a class="el" href="classrayscenes_1_1rayscenevar.html">rayscenevar</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator[]</b> (std::string varName)</td></tr>
+<tr class="separator:a3ef881bfc7345a61de904a0fc073bc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >RaySceneManager class, manages rayscenes. </p>
@@ -436,8 +436,8 @@ template&lt;typename T , StringLiteral varName&gt; </td></tr>
 
 </div>
 </div>
-<a id="a5d5fd269d6fcccdd21c87da76a0c56e3" name="a5d5fd269d6fcccdd21c87da76a0c56e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d5fd269d6fcccdd21c87da76a0c56e3">&#9670;&nbsp;</a></span>addVar() <span class="overload">[2/2]</span></h2>
+<a id="a74ddb78e2c1c659fae8d130190105ceb" name="a74ddb78e2c1c659fae8d130190105ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ddb78e2c1c659fae8d130190105ceb">&#9670;&nbsp;</a></span>addVar() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,12 +447,6 @@ template&lt;typename T , StringLiteral varName&gt; </td></tr>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>varName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::type_index&#160;</td>
-          <td class="paramname"><em>varType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

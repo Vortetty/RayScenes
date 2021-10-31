@@ -10,7 +10,7 @@ var classrayscenes_1_1rayscenemanager =
     [ "addScene", "classrayscenes_1_1rayscenemanager.html#a0cf31701725c1c82c0b805fd363b2d2c", null ],
     [ "addScene", "classrayscenes_1_1rayscenemanager.html#a824ed1f9d9e7e7a9b44833c9ca9bc5a7", null ],
     [ "addVar", "classrayscenes_1_1rayscenemanager.html#aa27801eb7e2bdf8e90fdcf390b0b8468", null ],
-    [ "addVar", "classrayscenes_1_1rayscenemanager.html#a5d5fd269d6fcccdd21c87da76a0c56e3", null ],
+    [ "addVar", "classrayscenes_1_1rayscenemanager.html#a74ddb78e2c1c659fae8d130190105ceb", null ],
     [ "clearActiveScenes", "classrayscenes_1_1rayscenemanager.html#aa355b32ae61285922daefa6697de4cbc", null ],
     [ "getActiveScenes", "classrayscenes_1_1rayscenemanager.html#adf02f3ba9ffdb90925f6e54e21e04e59", null ],
     [ "getAllScenes", "classrayscenes_1_1rayscenemanager.html#a955ba9d872b8e1bfbf29c9d9940a11ff", null ],

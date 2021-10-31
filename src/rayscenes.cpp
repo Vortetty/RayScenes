@@ -119,7 +119,7 @@ namespace rayscenes {
 		// 
 		// Shared vars
 		//
-		void        rayscenemanager::addVar(std::string varName, std::type_index varType, void *varValue) { 
+		void        rayscenemanager::addVar(std::string varName, void *varValue) { 
 			accessibleVars[varName] = rayscenevar(varValue);
 		}
 		void        rayscenemanager::addVar(std::string varName, rayscenevar var) { 

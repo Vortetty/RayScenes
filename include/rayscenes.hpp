@@ -93,6 +93,23 @@ namespace rayscenes {
 		template<typename T>
 		operator T () { return *getVal<T>(); }
 
+		template<typename T>
+		rayscenevar& operator= (T _obj) {
+			ptr = (void*)&_obj;
+			return *this;
+		}
+		template<typename T>
+		rayscenevar& operator= (T* _obj) {
+			ptr = (void*)_obj;
+			return *this;
+		}
+		
+		rayscenevar& operator= (void* _obj) {
+			ptr = _obj;
+			return *this;
+		}
+
+
 	private:
 		void *ptr;
 	};
@@ -297,7 +314,7 @@ namespace rayscenes {
 		 * @param varType std::type_index of the variable
 		 * @param varValue Pointer to the variable as void*
 		 */
-		void addVar(std::string varName, std::type_index varType, void *varValue);
+		void addVar(std::string varName, void *varValue);
 
 		/**
 		 * @brief Adds a variable to the list of variables to be passed to the active scenes
@@ -318,7 +335,7 @@ namespace rayscenes {
 			return *(accessibleVars[std::string(varName.value)].getVal<T>());
 		}
 
-		rayscenevar operator[] (std::string id);
+		rayscenevar operator[] (std::string varName);
 	private:
 		/**
 		 * @brief The map of all scenes
