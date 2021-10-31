@@ -85,7 +85,13 @@ namespace rayscenes {
 		template<typename T>
 		T* getVal() { return (T*)ptr; }
 
+		template<typename T>
+		T* as() { return getVal<T>(); }
+
 		void* getVal() { return ptr; }
+
+		template<typename T>
+		operator T () { return *getVal<T>(); }
 
 	private:
 		void *ptr;
@@ -311,6 +317,8 @@ namespace rayscenes {
 		T getVarVal() { 
 			return *(accessibleVars[std::string(varName.value)].getVal<T>());
 		}
+
+		rayscenevar operator[] (std::string id);
 	private:
 		/**
 		 * @brief The map of all scenes

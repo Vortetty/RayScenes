@@ -142,4 +142,11 @@ namespace rayscenes {
 			std::unordered_map<K, V> empty;
 			std::swap(q, empty);
 		}
+
+		// 
+		// Operators
+		//
+		rayscenevar rayscenemanager::operator[] (std::string varName) {
+			return accessibleVars[varName];
+		}
 }
