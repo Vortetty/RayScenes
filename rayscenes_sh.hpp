@@ -117,6 +117,11 @@ namespace rayscenes {
 			ptr = _obj;
 			return *this;
 		}
+		
+		rayscenevar& operator= (rayscenevar& _obj) {
+			ptr = _obj.ptr;
+			return *this;
+		}
 
 
 	private:
